@@ -1,0 +1,32 @@
+Minimax
+
+
+Set L = { n } //the unexpanded nodes in the tree
+
+Let x be the 1st node on L. 
+
+if (x == n && there is a value assigned to it){
+	return this value
+}else{
+	if(x has been assigned a value vx){
+		let p be the parent of x and vp the value currently assigned to p.
+		if(p is a minimizing node){
+			set vp  = min(vp, vx).
+		}else if (p is a maximizing node){
+			set vp = max(vp, vx)
+		}
+		Remove x from L and return to step 2.
+	}else if(x has not been assigned a value and either x is a terminal node or we have decided not to expand the tree further){
+		compute its value using the evaluation function. 
+		Leave x on L 
+		return to step 2.
+	}else{
+		if(x is a maximizing node){
+			set vx to be –∞
+		}else if (x is a minimizing node){
+			set vx to be +∞
+		}
+		Add the children of x to the front of L 
+		return to step 2.
+	}
+}
